@@ -1,0 +1,28 @@
+{% extends 'agenda/layout/layout.html' %}
+
+{% block title %}Agenda{% endblock title %}
+
+
+{% block body %}
+
+<main class="form-signin w-100 m-auto">
+  <section class="py-3 text-center container">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <p>
+        <a href="{% url 'index'%}" class="btn btn-primary my-2">Home</a>
+        <a href="{% url 'list_contactos'%}" class="btn btn-secondary my-2">Contactos</a>
+      </p>
+  </div>
+</section>
+
+  <div class="card p-5 text-center">
+    <h1 class="display-4 fw-normal mb-5">Agregar contacto</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{formulario.as_p}}
+      <button>Guardar contacto</button>
+    </form>
+  </div>
+
+</main>
+{% endblock body %}

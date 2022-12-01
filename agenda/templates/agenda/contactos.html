@@ -1,0 +1,26 @@
+{% extends 'agenda/layout/layout.html' %}
+
+{% block title %}Agenda{% endblock title %}
+
+
+{% block body %}
+<section class="py-3 text-center container">
+  <div class="col-lg-6 col-md-8 mx-auto">
+    <p>
+      <a href="{% url 'index'%}" class="btn btn-primary my-2">Home</a>
+      <a href="{% url 'add_contacto'%}" class="btn btn-secondary my-2">Add Contact</a>
+    </p>
+</div>
+</section>
+
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Lista de contactos</span>
+  </div>
+</nav>
+<ul class="list-group">
+  {% for i in lista%}
+  <li class="list-group-item">{{i.apellido}}, {{i.nombre}} - {{i.telefono}}</li>
+  {% endfor %}
+</ul>
+{% endblock body %}
